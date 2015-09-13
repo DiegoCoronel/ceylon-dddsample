@@ -34,7 +34,6 @@ shared class PersonRs {
 	late PersonDao dao;
 	
 	shared new() {
-		print("Aeeeeeeeeeee ##################################");
 	}
 
 	path("/health")	
