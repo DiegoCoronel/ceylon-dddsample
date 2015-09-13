@@ -146,7 +146,11 @@ public class CeylonInit implements PersistenceProvider {
 		srcFile = srcFile.getParentFile();
 		srcFile = new File(srcFile, virtualFile.getName());
 		//System.out.println("+++" + srcFile);
-		Files.copy(srcFile.toPath(), dest.toPath());
+		try {
+			Files.copy(srcFile.toPath(), dest.toPath());
+		} catch(Exception e) {
+			System.out.println("OOOPS, just ignore for now, occurs for maven imports: " + src.getFile());
+		}
 	}
 	
 	private static File tmpRepo;
