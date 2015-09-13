@@ -1,5 +1,6 @@
 import javax.inject {
-	inject = inject__CONSTRUCTOR
+	inject = inject__CONSTRUCTOR,
+	inject__FIELD
 }
 import javax.persistence {
 	EntityManager,
@@ -21,6 +22,13 @@ import ceylon.interop.java {
 
 	javaClass
 }
+import javax.enterprise.event {
+
+	Event
+}
+import dddsample.qualifier {
+	created
+}
 
 shared interface PersonDao {
 	shared formal void persist(Person pessoa);
@@ -31,6 +39,9 @@ stateless
 shared class PersonDaoImpl satisfies PersonDao {
 	
 		EntityManager entityManager;
+	
+		inject__FIELD created
+		late Event<Person> createdPersonEvent;
 
 		inject
 		shared new(EntityManager entityManager) {
@@ -40,6 +51,7 @@ shared class PersonDaoImpl satisfies PersonDao {
 	    transactional
 		shared actual default void persist(Person person) {
             entityManager.persist(person);
+            createdPersonEvent.fire(person);
 		}
 		
 	    shared actual default Person|NoResultException find(Long id) {
