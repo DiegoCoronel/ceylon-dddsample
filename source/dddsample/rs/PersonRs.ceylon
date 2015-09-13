@@ -17,17 +17,18 @@ import javax.ws.rs {
 	pathParam
 }
 import java.lang {
-
 	Long
 }
 import javax.persistence {
-
 	NoResultException
+}
+import javax.ws.rs.core {
+	MediaType
 }
 
 path("/person")
-produces({"application/json"})
-consumes({"application/json"})
+produces({MediaType.\iAPPLICATION_JSON})
+consumes({MediaType.\iAPPLICATION_JSON})
 shared class PersonRs {
 
 	inject__FIELD
