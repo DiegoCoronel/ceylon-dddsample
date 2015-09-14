@@ -76,8 +76,6 @@ public class CeylonInit implements PersistenceProvider {
 		
 		try{
 		URL url = CeylonInit.class.getProtectionDomain().getCodeSource().getLocation().toURI().resolve("../..").toURL();
-		//System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>" + url);
-		 URLConnection conn = url.openConnection();
 		 initialize(url.toURI());
 		}catch(Exception e){
 			throw new IllegalStateException(e);
