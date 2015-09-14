@@ -8,9 +8,6 @@ import dddsample.dao {
 import dddsample.model {
 	Person
 }
-import dddsample.qualifier {
-	created
-}
 
 import java.lang {
 	Long
@@ -23,8 +20,7 @@ import javax.enterprise.event {
 	Event
 }
 import javax.inject {
-	inject=inject__CONSTRUCTOR,
-	inject__FIELD
+	inject=inject__CONSTRUCTOR
 }
 import javax.persistence {
 	EntityManager,
@@ -39,12 +35,12 @@ shared class PersonDaoImpl satisfies PersonDao {
 	
 	EntityManager entityManager;
 	
-	inject__FIELD created
-	late Event<Person> createdPersonEvent;
+	Event<Person> createdPersonEvent;
 	
 	inject
-	shared new(EntityManager entityManager) {
+	shared new(EntityManager entityManager, Event<Person> createdPersonEvent) {
 		this.entityManager = entityManager;
+		this.createdPersonEvent = createdPersonEvent;
 	}
 	
 	transactional
