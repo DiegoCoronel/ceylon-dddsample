@@ -42,22 +42,26 @@ public class CeylonInit implements PersistenceProvider {
 	
     
 	
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
 	public EntityManagerFactory createContainerEntityManagerFactory( PersistenceUnitInfo info, Map map) {
 		return delegate.createContainerEntityManagerFactory(info, map);
 	}
 
+    @SuppressWarnings("rawtypes")
     @Override
 	public EntityManagerFactory createEntityManagerFactory(String emName, Map map) {
 		return delegate.createEntityManagerFactory(emName, map);
 	}
-	
+
+    @SuppressWarnings("rawtypes")
 	@Override
 	public void generateSchema(PersistenceUnitInfo arg0, Map arg1) {
 		delegate.generateSchema(arg0, arg1);
 		
 	}
 
+    @SuppressWarnings("rawtypes")
 	@Override
 	public boolean generateSchema(String arg0, Map arg1) {
 		return delegate.generateSchema(arg0, arg1);
