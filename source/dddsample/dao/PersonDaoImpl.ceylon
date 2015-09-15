@@ -2,10 +2,10 @@ import ceylon.interop.java {
 	javaClass
 }
 
-import dddsample.dao {
+import dddsample_api.dao {
 	PersonDao
 }
-import dddsample.model {
+import dddsample_api.model {
 	Person
 }
 
@@ -49,13 +49,13 @@ shared class PersonDaoImpl satisfies PersonDao {
 		createdPersonEvent.fire(person);
 	}
 	
-	shared actual default Person|NoResultException find(Long id) {
+	shared actual default Person? find(Long id) {
 		try {
 			return entityManager.createNamedQuery("Person.find",javaClass<Person>())
 					.setParameter("id", id)
 					.singleResult;
 		} catch (NoResultException e) {
-			return e;
+			return null;
 		}
 	}
 	

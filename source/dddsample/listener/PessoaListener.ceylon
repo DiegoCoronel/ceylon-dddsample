@@ -1,12 +1,13 @@
-import dddsample.model {
+import dddsample.qualifier {
+	created
+}
+
+import dddsample_api.model {
 	Person
 }
 
 import javax.enterprise.event {
 	observes
-}
-import dddsample.qualifier {
-	created
 }
 
 shared class PessoaListener() {

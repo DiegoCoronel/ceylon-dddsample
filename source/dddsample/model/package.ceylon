@@ -1,1 +1,1 @@
-shared package dddsample.model;
+package dddsample.model;
