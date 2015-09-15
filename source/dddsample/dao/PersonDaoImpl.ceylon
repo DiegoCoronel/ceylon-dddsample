@@ -29,6 +29,10 @@ import javax.persistence {
 import javax.transaction {
 	transactional
 }
+import dddsample.qualifier {
+
+	created
+}
 
 stateless
 shared class PersonDaoImpl satisfies PersonDao {
@@ -38,7 +42,7 @@ shared class PersonDaoImpl satisfies PersonDao {
 	Event<Person> createdPersonEvent;
 	
 	inject
-	shared new(EntityManager entityManager, Event<Person> createdPersonEvent) {
+	shared new(EntityManager entityManager, created Event<Person> createdPersonEvent) {
 		this.entityManager = entityManager;
 		this.createdPersonEvent = createdPersonEvent;
 	}
