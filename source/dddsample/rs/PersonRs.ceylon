@@ -15,11 +15,15 @@ import java.lang {
 import javax.inject {
 	inject__FIELD
 }
+import dddsample.interceptor {
+	log
+}
 
+log
 shared class PersonRsImpl satisfies PersonRs {
 
 	inject__FIELD
-	late PersonDao dao;
+	late shared default PersonDao dao;
 	
 	shared new() {
 	}
