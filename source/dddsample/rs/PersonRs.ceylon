@@ -13,7 +13,7 @@ import java.lang {
 }
 
 import javax.inject {
-	inject__FIELD
+	inject  = inject__FIELD
 }
 import dddsample.interceptor {
 	log
@@ -22,7 +22,7 @@ import dddsample.interceptor {
 log
 shared class PersonRsImpl satisfies PersonRs {
 
-	inject__FIELD
+	inject
 	late shared default PersonDao dao;
 	
 	shared new() {
