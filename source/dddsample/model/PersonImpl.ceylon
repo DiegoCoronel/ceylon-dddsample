@@ -1,10 +1,6 @@
 import dddsample_api.model {
 	Person
 }
-
-import java.io {
-	Serializable
-}
 import java.lang {
 	Long
 }
@@ -24,7 +20,7 @@ namedQueries ({
 	namedQuery { name = "Person.find";
 	query = "from PersonImpl p where p.id = :id"; }
 })
-shared class PersonImpl satisfies Person & Serializable {
+shared class PersonImpl satisfies Person {
 	
 	id
 	generatedValue
